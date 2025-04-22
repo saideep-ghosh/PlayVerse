@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tournaments</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: #0d0d0d;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      margin: 0;
+      padding: 0;
+    }
+
+    .tournaments-section {
+      max-width: 1200px;
+      margin: 80px auto;
+      padding: 40px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 3rem;
+      margin-bottom: 30px;
+      color: #00fff7;
+      text-shadow: 0 0 15px #00fff7;
+    }
+
+    .tournament-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+
+    .tournament-card {
+      background: #1a1a1a;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px #00fff7;
+      transition: transform 0.3s ease;
+    }
+
+    .tournament-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 25px #00fff7;
+    }
+
+    .tournament-card h3 {
+      margin-top: 0;
+      color: #00fff7;
+    }
+
+    .tournament-card p {
+      color: #ccc;
+      margin: 10px 0;
+    }
+
+    .join-btn {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: linear-gradient(90deg, #00fff7, #6effff);
+      color: #000;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 15px #00fff7;
+      transition: transform 0.2s ease;
+      text-decoration: none;
+    }
+
+    .join-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #00fff7;
+    }
+
+    @media (max-width: 768px) {
+      h2 {
+        font-size: 2.2rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="tournaments-section">
+    <h2>Upcoming Tournaments</h2>
+    <div class="tournament-grid">
+      
+      <div class="tournament-card">
+        <h3>⚔️ Battle Royale Bash</h3>
+        <p>Date: April 20, 2025</p>
+        <p>Prize: $500 + Game Merch</p>
+        <a class="join-btn" href="#">Join Now</a>
+      </div>
+
+      <div class="tournament-card">
+        <h3>🏆 Table tenis Pro League</h3>
+        <p>Date: May 2, 2025</p>
+        <p>Prize: Exclusive In-Game Items</p>
+        <a class="join-btn" href="#">Join Now</a>
+      </div>
+
+      <div class="tournament-card">
+        <h3>🧱 Brick Breaker Challenge</h3>
+        <p>Date: May 15, 2025</p>
+        <p>Prize: Gaming Headset</p>
+        <a class="join-btn" href="#">Join Now</a>
+      </div>
+
+      <div class="tournament-card">
+        <h3>🐉 Dino Jump Arena</h3>
+        <p>Date: May 30, 2025</p>
+        <p>Prize: Mystery Gift Box</p>
+        <a class="join-btn" href="#">Join Now</a>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

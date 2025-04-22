@@ -1,0 +1,98 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dino Jump Game</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            font-family: Arial, sans-serif;
+        }
+        .game-container {
+            position: relative;
+            width: 600px;
+            height: 200px;
+            border: 2px solid #000;
+            background-color: white;
+            overflow: hidden;
+        }
+        .dino {
+            position: absolute;
+            bottom: 0;
+            left: 50px;
+            width: 50px;
+            height: 50px;
+            background-image: url('https://i.imgur.com/8oXwMGG.png'); /* Dino Image */
+            background-size: contain;
+            background-repeat: no-repeat;
+        }
+        .obstacle {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 30px;
+            height: 40px;
+            background-image: url('https://i.imgur.com/Y3skGCr.png'); /* Cactus Image */
+            background-size: contain;
+            background-repeat: no-repeat;
+            animation: moveObstacle 2s linear infinite;
+        }
+        .jump {
+            animation: jump 0.5s linear;
+        }
+        @keyframes jump {
+            0% { bottom: 0; }
+            50% { bottom: 80px; }
+            100% { bottom: 0; }
+        }
+        @keyframes moveObstacle {
+            from { right: -30px; }
+            to { right: 600px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <div class="dino" id="dino"></div>
+        <div class="obstacle" id="obstacle"></div>
+    </div>
+
+    <script>
+        let dino = document.getElementById("dino");
+        let obstacle = document.getElementById("obstacle");
+
+        document.addEventListener("keydown", function(event) {
+            if (event.code === "Space" && !dino.classList.contains("jump")) {
+                dino.classList.add("jump");
+                setTimeout(() => {
+                    dino.classList.remove("jump");
+                }, 500);
+            }
+        });
+
+        function checkCollision() {
+            setInterval(() => {
+                let dinoBottom = parseInt(window.getComputedStyle(dino).getPropertyValue("bottom"));
+                let obstacleLeft = parseInt(window.getComputedStyle(obstacle).getPropertyValue("right"));
+
+                if (obstacleLeft > 500 && obstacleLeft < 550 && dinoBottom < 40) {
+                    alert("Game Over!");
+                    location.reload();
+                }
+            }, 10);
+        }
+
+        checkCollision();
+    </script>
+</body>
+</html> -->

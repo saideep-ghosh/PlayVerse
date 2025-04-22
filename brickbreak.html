@@ -1,0 +1,110 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brick Breaker</title>
+    <style>
+        body {
+            text-align: center;
+            background: #222;
+            color: white;
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            background: black;
+            display: block;
+            margin: auto;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="gameCanvas"></canvas>
+    <script>
+        const canvas = document.getElementById("gameCanvas");
+        const ctx = canvas.getContext("2d");
+
+        // Set canvas size dynamically
+        canvas.width = 480;
+        canvas.height = 320;
+
+        let ball = { x: canvas.width / 2, y: canvas.height - 30, dx: 2, dy: -2, radius: 10 };
+        let paddle = { x: (canvas.width - 75) / 2, width: 75, height: 10, dx: 7 };
+        let rightPressed = false, leftPressed = false, gameOver = false;
+
+        document.addEventListener("keydown", keyDownHandler);
+        document.addEventListener("keyup", keyUpHandler);
+
+        function keyDownHandler(e) {
+            if (e.key === "Right" || e.key === "ArrowRight") rightPressed = true;
+            if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = true;
+        }
+
+        function keyUpHandler(e) {
+            if (e.key === "Right" || e.key === "ArrowRight") rightPressed = false;
+            if (e.key === "Left" || e.key === "ArrowLeft") leftPressed = false;
+        }
+
+        function drawBall() {
+            ctx.beginPath();
+            ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
+            ctx.fillStyle = "#00ff00";
+            ctx.fill();
+            ctx.closePath();
+        }
+
+        function drawPaddle() {
+            ctx.fillStyle = "#ff0000";
+            ctx.fillRect(paddle.x, canvas.height - paddle.height, paddle.width, paddle.height);
+        }
+
+        function detectCollision() {
+            // Ball collision with walls
+            if (ball.x + ball.radius > canvas.width || ball.x - ball.radius < 0) ball.dx *= -1;
+            if (ball.y - ball.radius < 0) ball.dy *= -1;
+
+            // Ball collision with paddle
+            if (
+                ball.y + ball.radius >= canvas.height - paddle.height &&
+                ball.x > paddle.x &&
+                ball.x < paddle.x + paddle.width
+            ) {
+                ball.dy *= -1;
+            }
+
+            // Ball falls below paddle (Game Over)
+            if (ball.y + ball.radius > canvas.height) {
+                if (!gameOver) {
+                    gameOver = true;
+                    setTimeout(() => {
+                        alert("Game Over");
+                        document.location.reload();
+                    }, 200);
+                }
+            }
+        }
+
+        function update() {
+            if (gameOver) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawBall();
+            drawPaddle();
+            detectCollision();
+
+            // Ball movement
+            ball.x += ball.dx;
+            ball.y += ball.dy;
+
+            // Paddle movement
+            if (rightPressed && paddle.x < canvas.width - paddle.width) paddle.x += paddle.dx;
+            if (leftPressed && paddle.x > 0) paddle.x -= paddle.dx;
+
+            requestAnimationFrame(update);
+        }
+
+        update();
+    </script>
+</body>
+</html> -->

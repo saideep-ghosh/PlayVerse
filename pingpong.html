@@ -1,0 +1,150 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong Game</title>
+    <style>
+        .ping-pong-container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            border: 1px solid #ccc;
+            margin: 20px auto;
+            overflow: hidden;
+            background-color: black;
+        }
+        .paddle {
+            position: absolute;
+            width: 20px;
+            height: 100px;
+            background-color: white;
+        }
+        .paddle-left { left: 0; }
+        .paddle-right { right: 0; }
+        .ball {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: red;
+            border-radius: 50%;
+        }
+        .controls {
+            margin-top: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .game-over {
+            background-color: red;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            height: 45vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="ping-pong-container">
+        <div class="paddle paddle-left" id="paddle-left"></div>
+        <div class="paddle paddle-right" id="paddle-right"></div>
+        <div class="ball" id="ball"></div>
+    </div>
+    <div class="controls">
+        <button id="start">Start</button>
+        <button id="pause">Pause</button>
+        <button id="reset">Reset</button>
+    </div>
+    <div class="game-over" id="game-over">Game Over</div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const ball = document.getElementById("ball");
+            const paddleLeft = document.getElementById("paddle-left");
+            const paddleRight = document.getElementById("paddle-right");
+            const gameOverScreen = document.getElementById("game-over");
+            let ballX, ballY, speedX, speedY, paddleLeftY, paddleRightY, gameRunning, gameInterval;
+
+            function resetGame() {
+                ballX = 290;
+                ballY = 190;
+                speedX = 5;
+                speedY = 5;
+                paddleLeftY = 150;
+                paddleRightY = 150;
+                gameRunning = false;
+                clearInterval(gameInterval);
+                ball.style.left = `${ballX}px`;
+                ball.style.top = `${ballY}px`;
+                paddleLeft.style.top = `${paddleLeftY}px`;
+                paddleRight.style.top = `${paddleRightY}px`;
+                gameOverScreen.style.display = "none";
+            }
+
+            function updateGame() {
+                if (!gameRunning) return;
+                
+                ballX += speedX;
+                ballY += speedY;
+
+                // Ball collision with top and bottom walls
+                if (ballY <= 0 || ballY >= 380) speedY = -speedY;
+
+                // Ball collision with paddles
+                if (
+                    (ballX <= 20 && ballY >= paddleLeftY && ballY <= paddleLeftY + 100) ||
+                    (ballX >= 560 && ballY >= paddleRightY && ballY <= paddleRightY + 100)
+                ) {
+                    speedX = -speedX;
+                }
+
+                // Ball out of bounds (Game Over)
+                if (ballX < 0 || ballX > 600) {
+                    gameRunning = false;
+                    clearInterval(gameInterval);
+                    gameOverScreen.style.display = "flex";
+                }
+
+                ball.style.left = `${ballX}px`;
+                ball.style.top = `${ballY}px`;
+            }
+
+            function movePaddle(event) {
+                if (event.key === "ArrowUp") paddleRightY = Math.max(paddleRightY - 20, 0);
+                if (event.key === "ArrowDown") paddleRightY = Math.min(paddleRightY + 20, 300);
+                if (event.key === "w") paddleLeftY = Math.max(paddleLeftY - 20, 0);
+                if (event.key === "s") paddleLeftY = Math.min(paddleLeftY + 20, 300);
+
+                paddleLeft.style.top = `${paddleLeftY}px`;
+                paddleRight.style.top = `${paddleRightY}px`;
+            }
+
+            document.getElementById("start").addEventListener("click", () => {
+                if (!gameRunning) {
+                    gameRunning = true;
+                    gameInterval = setInterval(updateGame, 50);
+                    gameOverScreen.style.display = "none";
+                }
+            });
+
+            document.getElementById("pause").addEventListener("click", () => {
+                gameRunning = false;
+                clearInterval(gameInterval);
+            });
+
+            document.getElementById("reset").addEventListener("click", resetGame);
+
+            window.addEventListener("keydown", movePaddle);
+            resetGame(); // Ensure game starts with initial values
+        });
+    </script>
+</body>
+</html> -->

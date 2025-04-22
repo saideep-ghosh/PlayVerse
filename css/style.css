@@ -1,0 +1,517 @@
+/* ===== Base Styles ===== */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Orbitron:wght@600;700&display=swap');
+
+:root {
+  /* Color Palette */
+  --primary: #6e00ff;
+  --primary-light: #8a2be2;
+  --secondary: #00f7ff;
+  --secondary-dark: #00c9d4;
+  --dark: #0f0c24;
+  --darker: #080616;
+  --darkest: #050311;
+  --light: #f8f9fa;
+  --gray: #a1a1aa;
+  --gray-dark: #6b7280;
+  --accent: #ff0057;
+  --accent-light: #ff3380;
+
+  /* Effects */
+  --glow: 0 0 15px rgba(110, 0, 255, 0.5);
+  --glow-secondary: 0 0 15px rgba(0, 247, 255, 0.3);
+  --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: var(--dark);
+  color: var(--light);
+  overflow-x: hidden;
+  position: relative;
+  line-height: 1.6;
+}
+
+/* ===== Background Effects ===== */
+body::before, body::after {
+  content: '';
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  z-index: -1;
+  opacity: 0.15;
+  animation: float 12s infinite ease-in-out;
+}
+
+body::before {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: -100px;
+  background: var(--primary);
+}
+
+body::after {
+  width: 400px;
+  height: 400px;
+  bottom: 5%;
+  right: -150px;
+  background: var(--secondary);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+/* ===== Typography ===== */
+h1, h2, h3, h4 {
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ===== Header/Navigation ===== */
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 5%;
+  background: rgba(15, 12, 36, 0.9);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(110, 0, 255, 0.2);
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo img {
+  height: 40px;
+}
+
+.nav {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav li a {
+  color: var(--gray);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: var(--transition);
+  position: relative;
+  padding: 0.5rem 0;
+}
+
+.nav li a:hover, .nav li a.active {
+  color: var(--light);
+}
+
+.nav li a::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: var(--transition);
+}
+
+.nav li a:hover::after, .nav li a.active::after {
+  width: 100%;
+}
+
+.searchBx {
+  display: flex;
+  align-items: center;
+  background: rgba(110, 0, 255, 0.1);
+  border-radius: 30px;
+  padding: 0.5rem 1rem;
+  border: 1px solid rgba(110, 0, 255, 0.2);
+  transition: var(--transition);
+}
+
+.searchBx:hover {
+  border-color: var(--primary);
+}
+
+.searchBx input {
+  background: transparent;
+  border: none;
+  color: var(--light);
+  padding: 0.3rem 0.5rem;
+  outline: none;
+  width: 180px;
+}
+
+.searchBx input::placeholder {
+  color: var(--gray);
+}
+
+.searchBx a {
+  color: var(--gray);
+  transition: var(--transition);
+}
+
+.searchBx a:hover {
+  color: var(--secondary);
+}
+
+/* ===== Hero/Banner Section ===== */
+.banner {
+  text-align: center;
+  padding: 8rem 5% 6rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(110,0,255,0.1) 0%, transparent 70%);
+  z-index: -1;
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.glow-title-btn {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary), var(--accent));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 25px rgba(110, 0, 255, 0.3);
+  line-height: 1.2;
+  animation: pulse 4s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.9; text-shadow: 0 0 35px rgba(110, 0, 255, 0.5); }
+}
+
+.glow-gold {
+  max-width: 700px;
+  margin: 1.5rem auto 2.5rem;
+  font-size: 1.2rem;
+  color: var(--gray);
+  line-height: 1.7;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: var(--light);
+  padding: 0.8rem 2rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: var(--transition);
+  box-shadow: var(--glow);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, var(--primary-light), var(--accent-light));
+  opacity: 0;
+  transition: var(--transition);
+  z-index: -1;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(110, 0, 255, 0.4);
+}
+
+.btn:hover::before {
+  opacity: 1;
+}
+
+/* ===== Games Section ===== */
+.games {
+  padding: 5rem 5%;
+  background: linear-gradient(to bottom, var(--darker), var(--dark));
+  position: relative;
+}
+
+.games::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg width="100" height="100" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h100v100H0z" fill="none"/><path d="M20 20h10v10H20zM60 20h10v10H60zM20 60h10v10H20zM60 60h10v10H60z" fill="rgba(110,0,255,0.05)"/></svg>');
+  opacity: 0.3;
+  z-index: 0;
+}
+
+.games h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.game-container {
+  position: relative;
+  z-index: 1;
+}
+
+.game-links {
+  background: rgba(30, 20, 70, 0.4);
+  border-radius: 12px;
+  padding: 2rem;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(110, 0, 255, 0.2);
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.game-links h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--secondary);
+}
+
+.game-links ul {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.game-links li {
+  transition: var(--transition);
+}
+
+.game-links a {
+  display: block;
+  color: var(--light);
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  background: rgba(110, 0, 255, 0.2);
+  border-radius: 8px;
+  transition: var(--transition);
+  border: 1px solid rgba(110, 0, 255, 0.3);
+  text-align: center;
+  font-weight: 500;
+}
+
+.game-links a:hover {
+  background: rgba(110, 0, 255, 0.4);
+  transform: translateY(-3px);
+  box-shadow: var(--glow);
+  border-color: var(--primary);
+}
+
+/* ===== Mission Section ===== */
+.mission-section {
+  padding: 5rem 5%;
+  text-align: center;
+  background: linear-gradient(to bottom, var(--dark), var(--darker));
+  position: relative;
+  overflow: hidden;
+}
+
+.mission-section h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.mission-section h2::after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+}
+
+.mission-section p {
+  max-width: 800px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--gray);
+  position: relative;
+}
+
+/* ===== Responsive Design ===== */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+  }
+  
+  .nav {
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .glow-title-btn {
+    font-size: 2.5rem;
+  }
+  
+  .game-links ul {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===== Additional BloxRoute-Inspired Elements ===== */
+.tags-container {
+  display: flex;
+  gap: 0.8rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tag {
+  padding: 0.4rem 1.2rem;
+  background: rgba(110, 0, 255, 0.1);
+  border-radius: 20px;
+  font-size: 0.9rem;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: var(--transition);
+  border: 1px solid rgba(110, 0, 255, 0.2);
+}
+
+.tag:hover, .tag.active {
+  background: var(--primary);
+  color: var(--light);
+  box-shadow: var(--glow);
+}
+
+/* ===== Footer ===== */
+footer {
+  background: var(--darker);
+  padding: 3rem 5%;
+  text-align: center;
+  border-top: 1px solid rgba(110, 0, 255, 0.2);
+}
+
+.footer-links {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: var(--gray);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+.footer-links a:hover {
+  color: var(--secondary);
+}
+
+.copyright {
+  color: var(--gray-dark);
+  font-size: 0.9rem;
+}
+/* Active Nav Item Styling */
+.nav li a.active {
+  color: #00e6ff;
+  text-shadow: 0 0 10px #00e6ff;
+  position: relative;
+}
+
+.nav li a.active::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #00e6ff;
+  box-shadow: 0 0 10px #00e6ff;
+}
+
+/* Ensure the navbar stays on top */
+header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+body {
+  padding-top: 80px; /* Match your header height */
+}
+
+/* Temporary placeholder */
+header:empty {
+  height: 80px;
+  background: rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.main-nav {
+  display: flex;
+  gap: 2rem;
+  position: relative; /* ✅ Add this */
+}
