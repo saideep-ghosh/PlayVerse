@@ -1,171 +1,321 @@
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Gamers | Home</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
-  <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-
+  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GAMEZONE | Competitive Gaming Platform</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  
+  
   <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
-      color: white;
-      overflow-x: hidden;
+    :root {
+      --primary: #6e00ff;
+      --secondary: #00f7ff;
+      --dark: #0f0c24;
+      --darker: #080616;
+      --light: #f8f9fa;
+      --gray: #a1a1aa;
     }
-
+    
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--dark);
+      color: var(--light);
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    /* Header/Nav - BloxRoute Style */
     header {
+      background: var(--darker);
+      padding: 1.5rem 5%;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 20px 50px;
-      background-color: rgba(0,0,0,0.7);
-      box-shadow: 0 0 15px #0ff;
+      border-bottom: 1px solid rgba(110, 0, 255, 0.1);
     }
-
+    
     .logo {
       font-size: 1.8rem;
-      color: #0ff;
-      text-decoration: none;
-      font-weight: bold;
-    }
-
-    .nav {
-      list-style: none;
-      display: flex;
-      gap: 20px;
-    }
-
-    .nav li a {
-      color: #fff;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .nav li a:hover {
-      color: #ff00cc;
-    }
-
-    .hero {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 80px 20px 60px;
-    }
-
-    .hero h1 {
-      font-size: 3.5rem;
-      background: linear-gradient(45deg, #fff, #ff00ff);
+      font-weight: 700;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-shadow: 0 0 20px #ff00ff;
+      background-clip: text;
+      color: transparent;
     }
-
-    .hero p {
-      max-width: 600px;
-      margin: 20px auto;
-      color: #ffd700;
-      font-size: 1.1rem;
-      line-height: 1.6;
+    
+    .main-nav {
+      display: flex;
+      gap: 2rem;
     }
-
-    .btn {
-      margin-top: 30px;
-      padding: 12px 25px;
-      background-color: #0ff;
-      border: none;
-      color: #000;
-      font-size: 1rem;
-      border-radius: 8px;
-      cursor: pointer;
+    
+    .nav-link {
+      color: var(--gray);
       text-decoration: none;
-      transition: 0.3s;
-      box-shadow: 0 0 20px #0ff;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      
     }
+    .nav-indicator {
+  position: absolute;
+  bottom: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  box-shadow: 0 0 10px var(--primary), 0 0 20px var(--secondary);
+  transition: all 0.3s ease;
+  border-radius: 2px;
+  z-index: 1;
+}
 
-    .btn:hover {
-      background-color: #ff00cc;
-      box-shadow: 0 0 20px #ff00cc;
-      color: white;
+    
+    .nav-link:hover, .nav-link.active {
+      color: var(--light);
     }
-
-    .features {
+    
+    .nav-link.active::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+    }
+    
+    /* Hero Section */
+    .hero {
+      padding: 6rem 5%;
+      text-align: center;
+      background: radial-gradient(circle at top, rgba(110,0,255,0.1) 0%, transparent 50%);
+    }
+    
+    .hero-title {
+      font-size: 3.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      background: linear-gradient(90deg, var(--light), var(--secondary));
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto 3rem;
+    }
+    
+    /* Game Cards - BloxRoute Style */
+    .game-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 40px;
-      padding: 60px 30px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 0 5% 5rem;
     }
-
-    .feature-box {
-      background-color: rgba(255, 255, 255, 0.05);
-      padding: 30px;
-      border-radius: 15px;
-      text-align: center;
-      box-shadow: 0 0 10px #0ff;
-      transition: transform 0.3s, box-shadow 0.3s;
+    
+    .game-card {
+      background: rgba(30, 20, 70, 0.3);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(110, 0, 255, 0.2);
+      transition: all 0.3s ease;
     }
-
-    .feature-box:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff00cc;
+    
+    .game-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(110, 0, 255, 0.2);
+      border-color: rgba(110, 0, 255, 0.4);
     }
-
-    .feature-box h3 {
-      color: #0ff;
-      margin-bottom: 10px;
+    
+    .game-thumbnail {
+      height: 180px;
+      background: var(--darker);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--gray);
+      font-size: 2rem;
     }
-
-    footer {
-      text-align: center;
-      padding: 30px 20px;
-      background-color: rgba(0, 0, 0, 0.7);
-      margin-top: 40px;
-      color: #aaa;
+    
+    .game-info {
+      padding: 1.5rem;
+    }
+    
+    .game-title {
+      font-size: 1.3rem;
+      margin: 0 0 0.5rem;
+    }
+    
+    .game-description {
+      color: var(--gray);
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .play-btn {
+      display: inline-block;
+      padding: 0.6rem 1.5rem;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: var(--darker);
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    
+    .play-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(110, 0, 255, 0.3);
+    }
+    
+    /* News/Updates Section */
+    .updates-section {
+      padding: 4rem 5%;
+      background: var(--darker);
+    }
+    
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 2rem;
+      display: flex;
+      align-items: center;
+    }
+    
+    .section-title::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 4px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      margin-right: 1rem;
+    }
+    
+    .tags {
+      display: flex;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+    
+    .tag {
+      padding: 0.4rem 1rem;
+      background: rgba(110, 0, 255, 0.1);
+      border-radius: 20px;
+      font-size: 0.8rem;
+      color: var(--secondary);
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .tag:hover, .tag.active {
+      background: var(--primary);
+      color: var(--light);
     }
   </style>
 </head>
-
 <body>
-
   <header>
-    <a href="#" class="logo">🎮 Gamers</a>
-    <ul class="nav">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="game.html">Games</a></li>
-      <li><a href="tournaments.html">Tournaments</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
+    <div class="logo">GAMEZONE</div>
+    <nav class="main-nav">
+      <a href="index.html" class="nav-link active">Home</a>
+      <a href="games.html" class="nav-link">Games</a>
+      <a href="tournaments.html" class="nav-link">Tournaments</a>
+      <a href="about.html" class="nav-link">About</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+      <span class="nav-indicator"></span>
+      <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
+
+    </nav>
+    <div class="auth-buttons">
+      <a href="#" class="nav-link">Login</a>
+      <a href="#" class="play-btn" style="padding: 0.5rem 1.2rem;">Sign Up</a>
+    </div>
   </header>
 
   <section class="hero">
-    <h1>A New Home for Game Lovers</h1>
-    <p>Join a community of gamers where you can play, compete, and connect. Explore top games, join tournaments, and level up your experience.</p>
-    <a href="game.html" class="btn">🎯 Start Playing</a>
+    <h1 class="hero-title">COMPETITIVE GAMING REDEFINED</h1>
+    <p class="hero-subtitle">Join thousands of players in our premium gaming ecosystem. Experience tournaments, rankings, and next-level gameplay.</p>
+    <a href="#games" class="play-btn" style="font-size: 1.1rem; padding: 0.8rem 2rem;">Explore Games</a>
   </section>
 
-  <section class="features">
-    <div class="feature-box">
-      <h3>🔥 Trending Games</h3>
-      <p>Discover new, popular, and classic games across multiple genres.</p>
-    </div>
-    <div class="feature-box">
-      <h3>🏆 Tournaments</h3>
-      <p>Join epic tournaments and compete with the best to win rewards!</p>
-    </div>
-    <div class="feature-box">
-      <h3>👾 Game Community</h3>
-      <p>Chat with fellow gamers, share tips, and create your dream squad.</p>
+  <section id="games">
+    <h2 class="section-title">Featured Games</h2>
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-thumbnail">
+          <i class="fas fa-chess"></i>
+        </div>
+        <div class="game-info">
+          <h3 class="game-title">Chess Masters</h3>
+          <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments.</p>
+          <a href="https://www.chess.com/play/online" class="play-btn">Play Now</a>
+        </div>
+      </div>
+      
+      <!-- Repeat for other games -->
     </div>
   </section>
 
-  <footer>
-    &copy; 2025 Gamers Hub. All Rights Reserved.
-  </footer>
-
+  <section class="updates-section">
+    <h2 class="section-title">Gaming Pulse</h2>
+    <div class="tags">
+      <div class="tag active">All</div>
+      <div class="tag">Tournaments</div>
+      <div class="tag">Updates</div>
+      <div class="tag">Esports</div>
+      <div class="tag">Community</div>
+    </div>
+    
+    <div class="game-grid">
+      <div class="game-card">
+        <div class="game-thumbnail" style="background: #1e1446;">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <div class="game-info">
+          <h3 class="game-title">Summer Championship 2023</h3>
+          <p class="game-description">$50,000 prize pool. Registrations now open for all players.</p>
+          <a href="#" class="play-btn">Learn More</a>
+        </div>
+      </div>
+      
+      <!-- More update cards -->
+    </div>
+  </section>
+  <script>
+    const navLinks = document.querySelectorAll(".main-nav .nav-link");
+    const indicator = document.querySelector(".nav-indicator");
+    const nav = document.querySelector(".main-nav");
+  
+    function updateIndicator(el) {
+      indicator.style.width = el.offsetWidth + "px";
+      indicator.style.left = el.offsetLeft + "px";
+  
+      navLinks.forEach(link => link.classList.remove("active"));
+      el.classList.add("active");
+    }
+  
+    navLinks.forEach(link => {
+      link.addEventListener("click", (e) => {
+        updateIndicator(e.target);
+      });
+  
+      // On page load, mark correct link active
+      if (link.href === window.location.href) {
+        window.addEventListener("load", () => updateIndicator(link));
+      }
+    });
+  
+    // Initial placement
+    window.addEventListener("load", () => {
+      const active = document.querySelector(".nav-link.active");
+      if (active) updateIndicator(active);
+    });
+  </script>
+  
 </body>
-</html> -->
+</html>
