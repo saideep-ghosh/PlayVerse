@@ -2,6 +2,9 @@
 Welcome to **PlayVerse** — a curated collection of fun and engaging mini-games built with **HTML** and **CSS**!  
 This project was collaboratively developed by a team of four passionate developers.
 
+##🌍 **Live Demo**
+🔗 Check out PlayVerse live here: [PlayVerse Live Demo](https://saideep-ghosh.github.io/PlayVerse/)
+
 ---
 
 ## 🚀 **Project Overview**
