@@ -1,0 +1,113 @@
+<!-- login.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login / Signup - Gaming Portal</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to your main CSS -->
+  <style>
+    body {
+      background: linear-gradient(135deg, #0a0a23, #1b1b3a);
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+    .login-container {
+      background: rgba(0, 0, 50, 0.8);
+      padding: 30px;
+      border-radius: 20px;
+      box-shadow: 0 0 20px #00f0ff;
+      width: 350px;
+      text-align: center;
+      animation: glow 2s infinite alternate;
+    }
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      }
+      to {
+        box-shadow: 0 0 20px #00f0ff, 0 0 40px #00f0ff;
+      }
+    }
+    .login-container h2 {
+      margin-bottom: 20px;
+    }
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      background: #0a0a23;
+      color: #fff;
+    }
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #00f0ff;
+      color: #0a0a23;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .login-container button:hover {
+      background: #00c0cc;
+    }
+    .toggle-link {
+      color: #00f0ff;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+
+<div class="login-container" id="loginForm">
+  <h2>Login</h2>
+  <input type="text" placeholder="Username" id="loginUsername">
+  <input type="password" placeholder="Password" id="loginPassword">
+  <button onclick="login()">Login</button>
+  <div class="toggle-link" onclick="showSignup()">Don't have an account? Sign up</div>
+</div>
+
+<div class="login-container" id="signupForm" style="display:none;">
+  <h2>Sign Up</h2>
+  <input type="text" placeholder="Username" id="signupUsername">
+  <input type="email" placeholder="Email" id="signupEmail">
+  <input type="password" placeholder="Password" id="signupPassword">
+  <button onclick="signup()">Sign Up</button>
+  <div class="toggle-link" onclick="showLogin()">Already have an account? Log in</div>
+</div>
+
+<script>
+function showSignup() {
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('signupForm').style.display = 'block';
+}
+function showLogin() {
+  document.getElementById('signupForm').style.display = 'none';
+  document.getElementById('loginForm').style.display = 'block';
+}
+function login() {
+  // You can add real authentication later
+  alert('Login clicked!');
+}
+function signup() {
+  // You can add real signup logic later
+  alert('Signup clicked!');
+}
+</script>
+
+</body>
+
+</html>
