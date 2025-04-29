@@ -8,6 +8,8 @@
   <title>Games | Gamers</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
 
   <style>
     body {
@@ -171,6 +173,43 @@
       </div>
     </div>
   </div>
+  
+<!-- Mini Navbar -->
+<div class="fab-container">
+  <div class="fab-button" id="fabBtn" title="Menu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="fab-nav" id="fabNav">
+    <a href="index.html" title="Home"><i class="fas fa-house-user"></i></a>
+    <a href="games.html" title="Games"><i class="fas fa-gamepad"></i></a>
+    <a href="tournaments.html" title="Tournaments"><i class="fas fa-trophy"></i></a>
+    <a href="about.html" title="About Us"><i class="fas fa-users"></i></a>
+    <a href="contact.html" title="Contact"><i class="fas fa-envelope-open-text"></i></a>
+  </div>
+</div>
+
+
+
+
+
+
+<script>
+  // FAB toggle logic
+  const fabBtn = document.getElementById('fabBtn');
+  const fabNav = document.getElementById('fabNav');
+
+  fabBtn?.addEventListener('click', () => {
+    fabNav.classList.toggle('active');
+  });
+
+  // Hide FAB on index.html
+  if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+    const fabContainer = document.querySelector(".fab-container");
+    fabContainer?.remove();
+  }
+</script>
+
+
 
 </body>
 </html>

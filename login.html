@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Login / Signup - Gaming Portal</title>
   <link rel="stylesheet" href="style.css"> <!-- Link to your main CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
   <style>
     body {
       background: linear-gradient(135deg, #0a0a23, #1b1b3a);
@@ -107,7 +109,45 @@ function signup() {
   alert('Signup clicked!');
 }
 </script>
+<!-- Mini Navbar -->
+<div class="fab-container">
+  <div class="fab-button" id="fabBtn" title="Menu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="fab-nav" id="fabNav">
+    <a href="index.html" title="Home"><i class="fas fa-house-user"></i></a>
+    <a href="games.html" title="Games"><i class="fas fa-gamepad"></i></a>
+    <a href="tournaments.html" title="Tournaments"><i class="fas fa-trophy"></i></a>
+    <a href="about.html" title="About Us"><i class="fas fa-users"></i></a>
+    <a href="contact.html" title="Contact"><i class="fas fa-envelope-open-text"></i></a>
+  </div>
+</div>
+
+
+
+
+
+
+
+<script>
+  // FAB toggle logic
+  const fabBtn = document.getElementById('fabBtn');
+  const fabNav = document.getElementById('fabNav');
+
+  fabBtn?.addEventListener('click', () => {
+    fabNav.classList.toggle('active');
+  });
+
+  // Hide FAB on index.html
+  if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+    const fabContainer = document.querySelector(".fab-container");
+    fabContainer?.remove();
+  }
+</script>
+
+
 
 </body>
+
 
 </html>
