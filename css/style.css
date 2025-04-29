@@ -515,3 +515,28 @@ header:empty {
   gap: 2rem;
   position: relative; /* ✅ Add this */
 }
+.mini-navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background: #0d0d2b;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  box-shadow: 0 -2px 10px #00f0ff80;
+  z-index: 1000;
+}
+
+.mini-navbar a {
+  color: #00f0ff;
+  font-size: 20px;
+  text-decoration: none;
+  transition: transform 0.3s, color 0.3s;
+}
+
+.mini-navbar a:hover {
+  transform: scale(1.2);
+  color: #ffffff;
+}
+
