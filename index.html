@@ -113,6 +113,7 @@
     /* Game Cards - BloxRoute Style */
     .game-grid {
       display: grid;
+      grid-template: repeat();
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
       padding: 0 5% 5rem;
@@ -259,10 +260,21 @@
           <h3 class="game-title">Chess Masters</h3>
           <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments.</p>
           <a href="https://www.chess.com/play/online" class="play-btn">Play Now</a>
+          
         </div>
       </div>
       
-      <!-- Repeat for other games -->
+      <div class="game-card">
+        <div class="game-thumbnail">
+          <i class="fas fa-table-tennis"></i> <!-- Changed from fa-chess -->
+        </div>
+        <div class="game-info">
+          <h3 class="game-title">Bricks Breaker</h3>
+          <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments.</p>
+          <a href="https://www.crazygames.com/game/bricks-breaker" class="play-btn">Play Now</a>
+        </div>
+      </div>
+      
     </div>
   </section>
 
