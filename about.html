@@ -6,6 +6,8 @@
   <title>About Us |  Gamers</title>
   <link rel="stylesheet" href="css/style.css" />
   <link href=" https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
   
 
   <style>
@@ -155,26 +157,61 @@
     <h2>Meet the Team</h2>
     <div class="team">
       <div class="card">
-        <img src="team1.jpg" alt="Saideep ghosh">
+        <!-- <img src="team1.jpg" alt="Saideep ghosh"> -->
         <h3>Saideep ghosh</h3>
         <p>Creative Director</p>
       </div>
       <div class="card">
-        <img src="team2.jpg" alt="Sanyam Bajaj">
+        <!-- <img src="team2.jpg" alt="Sanyam Bajaj"> -->
         <h3>Sanyam Bajaj</h3>
         <p>Lead Developer</p>
       </div>
       <div class="card">
-        <img src="team3.jpg" alt="Sahil Poonia">
+        <!-- <img src="team3.jpg" alt="Sahil Poonia"> -->
         <h3>Sahil Poonia</h3>
         <p>UI/UX Designer</p>
       </div>
       <div class="card">
-        <img src="team4.jpg" alt="Piyush Thakur">
+        <!-- <img src="team4.jpg" alt="Piyush Thakur"> -->
         <h3>Piyush Thakur</h3>
         <p>Community Manager</p>
     </div>
   </section>
+
+ <!-- Mini Navbar -->
+<div class="fab-container">
+  <div class="fab-button" id="fabBtn" title="Menu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="fab-nav" id="fabNav">
+    <a href="index.html" title="Home"><i class="fas fa-house-user"></i></a>
+    <a href="games.html" title="Games"><i class="fas fa-gamepad"></i></a>
+    <a href="tournaments.html" title="Tournaments"><i class="fas fa-trophy"></i></a>
+    <a href="about.html" title="About Us"><i class="fas fa-users"></i></a>
+    <a href="contact.html" title="Contact"><i class="fas fa-envelope-open-text"></i></a>
+  </div>
+</div>
+
+
+
+
+<script>
+  // FAB toggle logic
+  const fabBtn = document.getElementById('fabBtn');
+  const fabNav = document.getElementById('fabNav');
+
+  fabBtn?.addEventListener('click', () => {
+    fabNav.classList.toggle('active');
+  });
+
+  // Hide FAB on index.html
+  if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+    const fabContainer = document.querySelector(".fab-container");
+    fabContainer?.remove();
+  }
+</script>
+
+
 
 </body>
 </html>

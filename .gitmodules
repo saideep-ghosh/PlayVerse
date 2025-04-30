@@ -1,3 +1,7 @@
 [submodule "PlayVerse"]
 	path = PlayVerse
+ saideep-ghosh
 	url = https://github.com/saideep-ghosh/PlayVerse.git
+
+	url = https://github.com/saideep-ghosh/PlayVerse.git
+ main

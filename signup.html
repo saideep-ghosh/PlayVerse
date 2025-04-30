@@ -5,6 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Sign Up | GameZone</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
 
   <style>
     :root {
@@ -106,6 +109,67 @@
       text-decoration: underline;
     }
 
+    /* Mini navbar styles */
+    .fab-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+    }
+
+    .fab-button {
+      background: linear-gradient(45deg, var(--primary), var(--secondary));
+      color: var(--dark);
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+      transition: 0.3s;
+    }
+
+    .fab-nav {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: all 0.3s ease-in-out;
+    }
+
+    .fab-nav.active {
+      opacity: 1;
+      pointer-events: all;
+      transform: translateY(0);
+    }
+
+    .fab-nav a {
+      background: var(--darker);
+      color: #00f7ff;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      box-shadow: 0 0 10px rgba(110, 0, 255, 0.4);
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .fab-nav a:hover {
+      background: var(--primary);
+      color: var(--light);
+    }
   </style>
 </head>
 <body>
@@ -135,6 +199,34 @@
       </div>
     </form>
   </div>
+
+  <!-- Mini Navbar -->
+  <div class="fab-container">
+    <div class="fab-button" id="fabBtn" title="Menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="fab-nav" id="fabNav">
+      <a href="index.html" title="Home"><i class="fas fa-house-user"></i></a>
+      <a href="games.html" title="Games"><i class="fas fa-gamepad"></i></a>
+      <a href="tournaments.html" title="Tournaments"><i class="fas fa-trophy"></i></a>
+      <a href="about.html" title="About Us"><i class="fas fa-users"></i></a>
+      <a href="contact.html" title="Contact"><i class="fas fa-envelope-open-text"></i></a>
+    </div>
+  </div>
+
+  <script>
+    const fabBtn = document.getElementById('fabBtn');
+    const fabNav = document.getElementById('fabNav');
+
+    fabBtn?.addEventListener('click', () => {
+      fabNav.classList.toggle('active');
+    });
+
+    // Hide FAB on index.html
+    if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+      document.querySelector(".fab-container")?.remove();
+    }
+  </script>
 
 </body>
 </html>

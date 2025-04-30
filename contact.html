@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact Me</title>
   <link rel="stylesheet" href="css/style.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+
  
   <style>
     body {
@@ -22,15 +24,23 @@
       padding: 40px;
       background: #1a1a1a;
       border-radius: 20px;
-      box-shadow: 0 0 25px #ff00f7;
+
+ 
+
+      box-shadow: 0 0 25px #05e6ff;
+
     }
 
     h2 {
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 10px;
-      color: #ff00f7;
-      text-shadow: 0 0 15px #ff00f7;
+
+      color: #00ffd0;
+      text-shadow: 0 0 15px #00ffd0;
+
+      color: #05e6ff;
+   
     }
 
     p {
@@ -48,7 +58,7 @@
       border: none;
       border-radius: 10px;
       background: #2b2b2b;
-      color: white;
+      color: rgb(160, 154, 154);
       font-size: 1rem;
     }
 
@@ -62,18 +72,24 @@
       padding: 15px;
       border: none;
       border-radius: 10px;
-      background: linear-gradient(90deg, #ff00f7, #ff6ec4);
+     
+
+      background: linear-gradient(90deg, #05e6ff, #05e6ff);
+
       color: white;
       font-size: 1.1rem;
       font-weight: bold;
       cursor: pointer;
-      box-shadow: 0 0 20px #ff00f7;
+
+      box-shadow: 0 0 20px #05e6ff;
+
       transition: transform 0.2s ease;
     }
 
     form button:hover {
       transform: scale(1.05);
-      box-shadow: 0 0 25px #ff00f7;
+
+      box-shadow: 0 0 25px #05e6ff;
     }
 
     @media (max-width: 600px) {
@@ -101,6 +117,41 @@
       <button type="submit">Send Message</button>
     </form>
   </div>
+  
+ <!-- Mini Navbar -->
+<div class="fab-container">
+  <div class="fab-button" id="fabBtn" title="Menu">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="fab-nav" id="fabNav">
+    <a href="index.html" title="Home"><i class="fas fa-house-user"></i></a>
+    <a href="games.html" title="Games"><i class="fas fa-gamepad"></i></a>
+    <a href="tournaments.html" title="Tournaments"><i class="fas fa-trophy"></i></a>
+    <a href="about.html" title="About Us"><i class="fas fa-users"></i></a>
+    <a href="contact.html" title="Contact"><i class="fas fa-envelope-open-text"></i></a>
+  </div>
+</div>
+
+
+
+
+<script>
+  // FAB toggle logic
+  const fabBtn = document.getElementById('fabBtn');
+  const fabNav = document.getElementById('fabNav');
+
+  fabBtn?.addEventListener('click', () => {
+    fabNav.classList.toggle('active');
+  });
+
+  // Hide FAB on index.html
+  if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+    const fabContainer = document.querySelector(".fab-container");
+    fabContainer?.remove();
+  }
+</script>
+
+
 
 </body>
 </html>

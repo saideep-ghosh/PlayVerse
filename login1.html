@@ -5,10 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GAMEZONE | Competitive Gaming Platform</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  
-
-
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 
   <style>
     :root {
@@ -110,7 +107,6 @@
 
     .game-grid {
       display: grid;
-      grid-template: repeat();
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
       padding: 0 5% 5rem;
@@ -243,11 +239,7 @@
 </head>
 <body>
   <header>
-
-  
-
-    
-    <div class="logo">PlayVerse</div>
+    <div class="logo">GAMEZONE</div>
     <nav class="main-nav">
       <a href="index.html" class="nav-link active">Home</a>
       <a href="games.html" class="nav-link">Games</a>
@@ -258,7 +250,7 @@
       <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
     </nav>
     <div class="auth-buttons">
-      <a href="login1.html" class="nav-link">Login</a>
+      <a href="login.html" class="nav-link">Login</a>
       <a href="signup.html" class="play-btn" style="padding: 0.5rem 1.2rem;">Sign Up</a>
     </div>
   </header>
@@ -280,42 +272,9 @@
           <h3 class="game-title">Chess Masters</h3>
           <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments.</p>
           <a href="https://www.chess.com/play/online" class="play-btn">Play Now</a>
-          
         </div>
       </div>
-      
-      <div class="game-card">
-        <div class="game-thumbnail">
-          <i class="fas fa-table-tennis"></i> <!-- Changed from fa-chess -->
-        </div>
-        <div class="game-info">
-          <h3 class="game-title">Bricks Breaker</h3>
-          <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments.</p>
-          <a href="https://www.crazygames.com/game/bricks-breaker" class="play-btn">Play Now</a>
-        </div>
-      </div>
-      <div class="game-card">
-        <div class="game-thumbnail">
-          <i class="fas fa-table-tennis"></i> <!-- Changed from fa-chess -->
-        </div>
-      <div class="game-info">
-        <h3 class="game-title">Krunker</h3>
-        <p class="game-description">Strategic battles with players worldwide anywhere anytime. Join our daily tournaments.</p>
-        <a href="https://www.crazygames.com/game/krunker-io" class="play-btn">Play Now</a>
-      </div>
-    </div>
-
-    <div class="game-card">
-      <div class="game-thumbnail">
-        <i class="fas fa-table-tennis"></i> <!-- Changed from fa-chess -->
-      </div>
-      <div class="game-info">
-        <h3 class="game-title">dino jump</h3>
-        <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments and feel the fun.</p>
-        <a href="images/dino.png" class="play-btn">Play Now</a>
-      </div>
-    </div>
-      
+      <!-- Repeat for other games -->
     </div>
   </section>
 
@@ -327,9 +286,6 @@
       <div class="tag">Updates</div>
       <div class="tag">Esports</div>
       <div class="tag">Community</div>
-      <div class="tag">Popular games</div>
-      <div class="tag">Suggestions</div>
-      <div class="tag">Contact me</div>
     </div>
 
     <div class="game-grid">
@@ -338,8 +294,8 @@
           <i class="fas fa-trophy"></i>
         </div>
         <div class="game-info">
-          <h3 class="game-title">Summer Championship 2025</h3>
-          <p class="game-description">$50,000 prize pool. Registrations now open for all players around the globe .</p>
+          <h3 class="game-title">Summer Championship 2023</h3>
+          <p class="game-description">$50,000 prize pool. Registrations now open for all players.</p>
           <a href="#" class="play-btn">Learn More</a>
         </div>
       </div>
@@ -347,7 +303,13 @@
     </div>
   </section>
 
-  
+  <!-- Mini Navbar -->
+  <div class="mini-navbar">
+    <a href="index.html"><i class="fas fa-home"></i></a>
+    <a href="games.html"><i class="fas fa-gamepad"></i></a>
+    <a href="tournaments.html"><i class="fas fa-trophy"></i></a>
+    <a href="contact.html"><i class="fas fa-envelope"></i></a>
+  </div>
 
   <script>
     const navLinks = document.querySelectorAll(".main-nav .nav-link");
@@ -377,6 +339,5 @@
       if (active) updateIndicator(active);
     });
   </script>
-  
 </body>
 </html>
