@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAMEZONE |  Competitive Gaming Platform</title>
+  <title>Play Verse | Competitive Gaming Platform</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="icon" href="images/gamepad.png">>
   
-  
+
+
+
+
   <style>
     :root {
       --primary: #6e00ff;
@@ -18,7 +20,7 @@
       --light: #f8f9fa;
       --gray: #a1a1aa;
     }
-    
+
     body {
       font-family: 'Inter', sans-serif;
       background-color: var(--dark);
@@ -27,8 +29,7 @@
       padding: 0;
       line-height: 1.6;
     }
-    
-    /* Header/Nav - BloxRoute Style */
+
     header {
       background: var(--darker);
       padding: 1.5rem 5%;
@@ -37,7 +38,7 @@
       align-items: center;
       border-bottom: 1px solid rgba(110, 0, 255, 0.1);
     }
-    
+
     .logo {
       font-size: 1.8rem;
       font-weight: 700;
@@ -46,36 +47,35 @@
       background-clip: text;
       color: transparent;
     }
-    
+
     .main-nav {
       display: flex;
       gap: 2rem;
     }
-    
+
     .nav-link {
       color: var(--gray);
       text-decoration: none;
       font-weight: 500;
       transition: all 0.3s ease;
       position: relative;
-      
     }
-    .nav-indicator {
-  position: absolute;
-  bottom: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--primary), var(--secondary));
-  box-shadow: 0 0 10px var(--primary), 0 0 20px var(--secondary);
-  transition: all 0.3s ease;
-  border-radius: 2px;
-  z-index: 1;
-}
 
-    
+    .nav-indicator {
+      position: absolute;
+      bottom: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      box-shadow: 0 0 10px var(--primary), 0 0 20px var(--secondary);
+      transition: all 0.3s ease;
+      border-radius: 2px;
+      z-index: 1;
+    }
+
     .nav-link:hover, .nav-link.active {
       color: var(--light);
     }
-    
+
     .nav-link.active::after {
       content: '';
       position: absolute;
@@ -85,14 +85,13 @@
       height: 2px;
       background: linear-gradient(90deg, var(--primary), var(--secondary));
     }
-    
-    /* Hero Section */
+
     .hero {
       padding: 6rem 5%;
       text-align: center;
       background: radial-gradient(circle at top, rgba(110,0,255,0.1) 0%, transparent 50%);
     }
-    
+
     .hero-title {
       font-size: 3.5rem;
       font-weight: 700;
@@ -102,22 +101,21 @@
       background-clip: text;
       color: transparent;
     }
-    
+
     .hero-subtitle {
       font-size: 1.2rem;
       color: var(--gray);
       max-width: 700px;
       margin: 0 auto 3rem;
-    }
-    
-    /* Game Cards - BloxRoute Style */
+    }/*hello i am saideep*/
     .game-grid {
       display: grid;
+      grid-template: repeat();
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
       padding: 0 5% 5rem;
     }
-    
+
     .game-card {
       background: rgba(30, 20, 70, 0.3);
       border-radius: 12px;
@@ -125,13 +123,13 @@
       border: 1px solid rgba(110, 0, 255, 0.2);
       transition: all 0.3s ease;
     }
-    
+
     .game-card:hover {
       transform: translateY(-5px);
       box-shadow: 0 10px 25px rgba(110, 0, 255, 0.2);
       border-color: rgba(110, 0, 255, 0.4);
     }
-    
+
     .game-thumbnail {
       height: 180px;
       background: var(--darker);
@@ -141,22 +139,22 @@
       color: var(--gray);
       font-size: 2rem;
     }
-    
+
     .game-info {
       padding: 1.5rem;
     }
-    
+
     .game-title {
       font-size: 1.3rem;
       margin: 0 0 0.5rem;
     }
-    
+
     .game-description {
       color: var(--gray);
       font-size: 0.9rem;
       margin-bottom: 1.5rem;
     }
-    
+
     .play-btn {
       display: inline-block;
       padding: 0.6rem 1.5rem;
@@ -167,25 +165,24 @@
       font-weight: 600;
       transition: all 0.3s ease;
     }
-    
+
     .play-btn:hover {
       transform: translateY(-2px);
       box-shadow: 0 5px 15px rgba(110, 0, 255, 0.3);
     }
-    
-    /* News/Updates Section */
+
     .updates-section {
       padding: 4rem 5%;
       background: var(--darker);
     }
-    
+
     .section-title {
       font-size: 2rem;
       margin-bottom: 2rem;
       display: flex;
       align-items: center;
     }
-    
+
     .section-title::before {
       content: '';
       display: inline-block;
@@ -194,14 +191,14 @@
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       margin-right: 1rem;
     }
-    
+
     .tags {
       display: flex;
       gap: 0.8rem;
       margin-bottom: 2rem;
       flex-wrap: wrap;
     }
-    
+
     .tag {
       padding: 0.4rem 1rem;
       background: rgba(110, 0, 255, 0.1);
@@ -211,10 +208,36 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-    
+
     .tag:hover, .tag.active {
       background: var(--primary);
       color: var(--light);
+    }
+
+    /* Mini Navbar */
+    .mini-navbar {
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+      background: #0d0d2b;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px 0;
+      box-shadow: 0 -2px 10px #00f0ff80;
+      z-index: 1000;
+    }
+
+    .mini-navbar a {
+      color: #00f0ff;
+      font-size: 20px;
+      text-decoration: none;
+      transition: transform 0.3s, color 0.3s;
+    }
+
+    .mini-navbar a:hover {
+      transform: scale(1.2);
+      color: #ffffff;
     }
   </style>
 </head>
@@ -223,18 +246,16 @@
 
   
 
-    <div class="logo">PlayVerse </div>
-
+    
+    <div class="logo">PlayVerse</div>
     <nav class="main-nav">
       <a href="index.html" class="nav-link active">Home</a>
       <a href="games.html" class="nav-link">Games</a>
       <a href="tournaments.html" class="nav-link">Tournaments</a>
       <a href="about.html" class="nav-link">About</a>
       <a href="contact.html" class="nav-link">Contact</a>
-      <!-- <a href ="login.html">Login</a> -->
       <span class="nav-indicator"></span>
       <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-
     </nav>
     <div class="auth-buttons">
       <a href="login1.html" class="nav-link">Login</a>
@@ -243,7 +264,7 @@
   </header>
 
   <section class="hero">
-    <h1 class="hero-title">COMPETITIVE GAMING REDEFINED</h1>
+    <h1 class="hero-title">COMPETITIVE GAMING REDEFINED </h1>
     <p class="hero-subtitle">Join thousands of players in our premium gaming ecosystem. Experience tournaments, rankings, and next-level gameplay.</p>
     <a href="#games" class="play-btn" style="font-size: 1.1rem; padding: 0.8rem 2rem;">Explore Games</a>
   </section>
@@ -257,12 +278,44 @@
         </div>
         <div class="game-info">
           <h3 class="game-title">Chess Masters</h3>
-          <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments.</p>
+          <p class="game-description">Strategic battles with players worldwide.  Join our daily tournaments.</p>
           <a href="https://www.chess.com/play/online" class="play-btn">Play Now</a>
+          
         </div>
       </div>
       
-      <!-- Repeat for other games -->
+      <div class="game-card">
+        <div class="game-thumbnail">
+          <i class="fas fa-table-tennis"></i> <!-- Changed from fa-chess -->
+        </div>
+        <div class="game-info">
+          <h3 class="game-title">Bricks Breaker</h3>
+          <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments.</p>
+          <a href="https://www.crazygames.com/game/bricks-breaker" class="play-btn">Play Now</a>
+        </div>
+      </div>
+      <div class="game-card">
+        <div class="game-thumbnail">
+          <i class="fas fa-table-tennis"></i> <!-- Changed from fa-chess -->
+        </div>
+      <div class="game-info">
+        <h3 class="game-title">Krunker</h3>
+        <p class="game-description">Strategic battles with players worldwide anywhere anytime. Join our daily tournaments.</p>
+        <a href="https://www.crazygames.com/game/krunker-io" class="play-btn">Play Now</a>
+      </div>
+    </div>
+
+    <div class="game-card">
+      <div class="game-thumbnail">
+        <i class="fas fa-table-tennis"></i> <!-- Changed from fa-chess -->
+      </div>
+      <div class="game-info">
+        <h3 class="game-title">dino jump</h3>
+        <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments and feel the fun.</p>
+        <a href="images/dino.png" class="play-btn">Play Now</a>
+      </div>
+    </div>
+      
     </div>
   </section>
 
@@ -274,48 +327,51 @@
       <div class="tag">Updates</div>
       <div class="tag">Esports</div>
       <div class="tag">Community</div>
+      <div class="tag">Popular games</div>
+      <div class="tag">Suggestions</div>
+      <div class="tag">Contact me</div>
     </div>
-    
+
     <div class="game-grid">
       <div class="game-card">
         <div class="game-thumbnail" style="background: #1e1446;">
           <i class="fas fa-trophy"></i>
         </div>
         <div class="game-info">
-          <h3 class="game-title">Summer Championship 2023</h3>
-          <p class="game-description">$50,000 prize pool. Registrations now open for all players.</p>
+          <h3 class="game-title">Summer Championship 2025</h3>
+          <p class="game-description">$50,000 prize pool. Registrations now open for all players around the globe .</p>
           <a href="#" class="play-btn">Learn More</a>
         </div>
       </div>
-      
       <!-- More update cards -->
     </div>
   </section>
+
+  
+
   <script>
     const navLinks = document.querySelectorAll(".main-nav .nav-link");
     const indicator = document.querySelector(".nav-indicator");
     const nav = document.querySelector(".main-nav");
-  
+
     function updateIndicator(el) {
       indicator.style.width = el.offsetWidth + "px";
       indicator.style.left = el.offsetLeft + "px";
-  
+
       navLinks.forEach(link => link.classList.remove("active"));
       el.classList.add("active");
     }
-  
+
     navLinks.forEach(link => {
       link.addEventListener("click", (e) => {
         updateIndicator(e.target);
       });
-  
-      // On page load, mark correct link active
+
       if (link.href === window.location.href) {
         window.addEventListener("load", () => updateIndicator(link));
       }
     });
-  
-    // Initial placement
+
     window.addEventListener("load", () => {
       const active = document.querySelector(".nav-link.active");
       if (active) updateIndicator(active);
