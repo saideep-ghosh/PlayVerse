@@ -1,343 +1,216 @@
+<!-- login.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GAMEZONE | Competitive Gaming Platform</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login / Signup - Gaming Portal</title>
+  <link rel="stylesheet" href="style.css"> <!-- Link to your main CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
+  <link rel="icon" href="images/gamepad.png">
 
   <style>
-    :root {
-      --primary: #6e00ff;
-      --secondary: #00f7ff;
-      --dark: #0f0c24;
-      --darker: #080616;
-      --light: #f8f9fa;
-      --gray: #a1a1aa;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
-      background-color: var(--dark);
-      color: var(--light);
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-
-    header {
-      background: var(--darker);
-      padding: 1.5rem 5%;
+      background: linear-gradient(135deg, #0a0a23, #1b1b3a);
+      font-family: 'Orbitron', sans-serif;
+      color: #fff;
       display: flex;
-      justify-content: space-between;
-      align-items: center;
-      border-bottom: 1px solid rgba(110, 0, 255, 0.1);
-    }
-
-    .logo {
-      font-size: 1.8rem;
-      font-weight: 700;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .main-nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-link {
-      color: var(--gray);
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s ease;
-      position: relative;
-    }
-
-    .nav-indicator {
-      position: absolute;
-      bottom: 0;
-      height: 3px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      box-shadow: 0 0 10px var(--primary), 0 0 20px var(--secondary);
-      transition: all 0.3s ease;
-      border-radius: 2px;
-      z-index: 1;
-    }
-
-    .nav-link:hover, .nav-link.active {
-      color: var(--light);
-    }
-
-    .nav-link.active::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-    }
-
-    .hero {
-      padding: 6rem 5%;
-      text-align: center;
-      background: radial-gradient(circle at top, rgba(110,0,255,0.1) 0%, transparent 50%);
-    }
-
-    .hero-title {
-      font-size: 3.5rem;
-      font-weight: 700;
-      margin-bottom: 1.5rem;
-      background: linear-gradient(90deg, var(--light), var(--secondary));
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-    }
-
-    .hero-subtitle {
-      font-size: 1.2rem;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 0 auto 3rem;
-    }
-
-    .game-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 0 5% 5rem;
-    }
-
-    .game-card {
-      background: rgba(30, 20, 70, 0.3);
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid rgba(110, 0, 255, 0.2);
-      transition: all 0.3s ease;
-    }
-
-    .game-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(110, 0, 255, 0.2);
-      border-color: rgba(110, 0, 255, 0.4);
-    }
-
-    .game-thumbnail {
-      height: 180px;
-      background: var(--darker);
-      display: flex;
-      align-items: center;
       justify-content: center;
-      color: var(--gray);
-      font-size: 2rem;
-    }
-
-    .game-info {
-      padding: 1.5rem;
-    }
-
-    .game-title {
-      font-size: 1.3rem;
-      margin: 0 0 0.5rem;
-    }
-
-    .game-description {
-      color: var(--gray);
-      font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .play-btn {
-      display: inline-block;
-      padding: 0.6rem 1.5rem;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      color: var(--darker);
-      border-radius: 6px;
-      text-decoration: none;
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    .play-btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 15px rgba(110, 0, 255, 0.3);
-    }
-
-    .updates-section {
-      padding: 4rem 5%;
-      background: var(--darker);
-    }
-
-    .section-title {
-      font-size: 2rem;
-      margin-bottom: 2rem;
-      display: flex;
       align-items: center;
+      height: 100vh;
+      overflow: hidden;
     }
-
-    .section-title::before {
-      content: '';
-      display: inline-block;
-      width: 30px;
-      height: 4px;
-      background: linear-gradient(90deg, var(--primary), var(--secondary));
-      margin-right: 1rem;
-    }
-
-    .tags {
-      display: flex;
-      gap: 0.8rem;
-      margin-bottom: 2rem;
-      flex-wrap: wrap;
-    }
-
-    .tag {
-      padding: 0.4rem 1rem;
-      background: rgba(110, 0, 255, 0.1);
+    .login-container {
+      background: rgba(0, 0, 50, 0.8);
+      padding: 30px;
       border-radius: 20px;
-      font-size: 0.8rem;
-      color: var(--secondary);
-      cursor: pointer;
-      transition: all 0.3s ease;
+      box-shadow: 0 0 20px #00f0ff;
+      width: 350px;
+      text-align: center;
+      animation: glow 2s infinite alternate;
     }
-
-    .tag:hover, .tag.active {
-      background: var(--primary);
-      color: var(--light);
+    @keyframes glow {
+      from {
+        box-shadow: 0 0 10px #00f0ff, 0 0 20px #00f0ff;
+      }
+      to {
+        box-shadow: 0 0 20px #00f0ff, 0 0 40px #0fa8b3;
+      }
     }
-
-    /* Mini Navbar */
-    .mini-navbar {
-      position: fixed;
-      bottom: 0;
+    .login-container h2 {
+      margin-bottom: 20px;
+    }
+    .login-container input {
       width: 100%;
-      background: #0d0d2b;
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      padding: 10px 0;
-      box-shadow: 0 -2px 10px #00f0ff80;
-      z-index: 1000;
+      padding: 10px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 10px;
+      background: #0a0a23;
+      color: #fff;
     }
-
-    .mini-navbar a {
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 15px;
+      border: none;
+      border-radius: 10px;
+      background: #00f0ff;
+      color: #0a0a23;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .login-container button:hover {
+      background: #00c0cc;
+    }
+    .toggle-link {
       color: #00f0ff;
-      font-size: 20px;
-      text-decoration: none;
-      transition: transform 0.3s, color 0.3s;
+      cursor: pointer;
+      margin-top: 10px;
+      display: inline-block;
+      font-size: 14px;
     }
+    /* Mini navbar styles */
+.fab-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
 
-    .mini-navbar a:hover {
-      transform: scale(1.2);
-      color: #ffffff;
-    }
+.fab-button {
+  background: linear-gradient(45deg, #6e00ff, #00f7ff);
+  color: #0f0c24;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  cursor: pointer;
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+  transition: 0.3s;
+}
+
+.fab-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: absolute;
+  bottom: 70px;
+  right: 0;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: all 0.3s ease-in-out;
+}
+
+.fab-nav.active {
+  opacity: 1;
+  pointer-events: all;
+  transform: translateY(0);
+}
+
+.fab-nav a {
+  background: #080616;
+  color: #00f7ff;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 0 10px rgba(110, 0, 255, 0.4);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.fab-nav a:hover {
+  background: #6e00ff;
+  color: #ffffff;
+}
+
   </style>
 </head>
 <body>
-  <header>
-    <div class="logo">GAMEZONE</div>
-    <nav class="main-nav">
-      <a href="index.html" class="nav-link active">Home</a>
-      <a href="games.html" class="nav-link">Games</a>
-      <a href="tournaments.html" class="nav-link">Tournaments</a>
-      <a href="about.html" class="nav-link">About</a>
-      <a href="contact.html" class="nav-link">Contact</a>
-      <span class="nav-indicator"></span>
-      <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
-    </nav>
-    <div class="auth-buttons">
-      <a href="login.html" class="nav-link">Login</a>
-      <a href="signup.html" class="play-btn" style="padding: 0.5rem 1.2rem;">Sign Up</a>
-    </div>
-  </header>
 
-  <section class="hero">
-    <h1 class="hero-title">COMPETITIVE GAMING REDEFINED</h1>
-    <p class="hero-subtitle">Join thousands of players in our premium gaming ecosystem. Experience tournaments, rankings, and next-level gameplay.</p>
-    <a href="#games" class="play-btn" style="font-size: 1.1rem; padding: 0.8rem 2rem;">Explore Games</a>
-  </section>
+<div class="login-container" id="loginForm">
+  <h2>Login</h2>
+  <input type="text" placeholder="Username" id="loginUsername">
+  <input type="password" placeholder="Password" id="loginPassword">
+  <button onclick="login()">Login</button>
+  <div class="toggle-link" onclick="showSignup()">Don't have an account? Sign up</div>
+</div>
 
-  <section id="games">
-    <h2 class="section-title">Featured Games</h2>
-    <div class="game-grid">
-      <div class="game-card">
-        <div class="game-thumbnail">
-          <i class="fas fa-chess"></i>
-        </div>
-        <div class="game-info">
-          <h3 class="game-title">Chess Masters</h3>
-          <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments.</p>
-          <a href="https://www.chess.com/play/online" class="play-btn">Play Now</a>
-        </div>
-      </div>
-      <!-- Repeat for other games -->
-    </div>
-  </section>
+<div class="login-container" id="signupForm" style="display:none;">
+  <h2>Sign Up</h2>
+  <input type="text" placeholder="Username" id="signupUsername">
+  <input type="email" placeholder="Email" id="signupEmail">
+  <input type="password" placeholder="Password" id="signupPassword">
+  <button onclick="signup()">Sign Up</button>
+  <div class="toggle-link" onclick="showLogin()">Already have an account? Log in</div>
+</div>
 
-  <section class="updates-section">
-    <h2 class="section-title">Gaming Pulse</h2>
-    <div class="tags">
-      <div class="tag active">All</div>
-      <div class="tag">Tournaments</div>
-      <div class="tag">Updates</div>
-      <div class="tag">Esports</div>
-      <div class="tag">Community</div>
-    </div>
-
-    <div class="game-grid">
-      <div class="game-card">
-        <div class="game-thumbnail" style="background: #1e1446;">
-          <i class="fas fa-trophy"></i>
-        </div>
-        <div class="game-info">
-          <h3 class="game-title">Summer Championship 2023</h3>
-          <p class="game-description">$50,000 prize pool. Registrations now open for all players.</p>
-          <a href="#" class="play-btn">Learn More</a>
-        </div>
-      </div>
-      <!-- More update cards -->
-    </div>
-  </section>
-
-  <!-- Mini Navbar -->
-  <div class="mini-navbar">
-    <a href="index.html"><i class="fas fa-home"></i></a>
-    <a href="games.html"><i class="fas fa-gamepad"></i></a>
-    <a href="tournaments.html"><i class="fas fa-trophy"></i></a>
-    <a href="contact.html"><i class="fas fa-envelope"></i></a>
+<script>
+function showSignup() {
+  document.getElementById('loginForm').style.display = 'none';
+  document.getElementById('signupForm').style.display = 'block';
+}
+function showLogin() {
+  document.getElementById('signupForm').style.display = 'none';
+  document.getElementById('loginForm').style.display = 'block';
+}
+function login() {
+  // You can add real authentication later
+  alert('Login clicked!');
+}
+function signup() {
+  // You can add real signup logic later
+  alert('Signup clicked!');
+}
+</script>
+<!-- Mini Navbar -->
+<div class="fab-container">
+  <div class="fab-button" id="fabBtn" title="Menu">
+    <i class="fas fa-bars"></i>
   </div>
+  <div class="fab-nav" id="fabNav">
+    <a href="index.html" title="Home"><i class="fas fa-house-user"></i></a>
+    <a href="games.html" title="Games"><i class="fas fa-gamepad"></i></a>
+    <a href="tournaments.html" title="Tournaments"><i class="fas fa-trophy"></i></a>
+    <a href="about.html" title="About Us"><i class="fas fa-users"></i></a>
+    <a href="contact.html" title="Contact"><i class="fas fa-envelope-open-text"></i></a>
+  </div>
+</div>
 
-  <script>
-    const navLinks = document.querySelectorAll(".main-nav .nav-link");
-    const indicator = document.querySelector(".nav-indicator");
-    const nav = document.querySelector(".main-nav");
 
-    function updateIndicator(el) {
-      indicator.style.width = el.offsetWidth + "px";
-      indicator.style.left = el.offsetLeft + "px";
 
-      navLinks.forEach(link => link.classList.remove("active"));
-      el.classList.add("active");
-    }
 
-    navLinks.forEach(link => {
-      link.addEventListener("click", (e) => {
-        updateIndicator(e.target);
-      });
 
-      if (link.href === window.location.href) {
-        window.addEventListener("load", () => updateIndicator(link));
-      }
-    });
 
-    window.addEventListener("load", () => {
-      const active = document.querySelector(".nav-link.active");
-      if (active) updateIndicator(active);
-    });
-  </script>
+
+<script>
+  // FAB toggle logic
+  const fabBtn = document.getElementById('fabBtn');
+  const fabNav = document.getElementById('fabNav');
+
+  fabBtn?.addEventListener('click', () => {
+    fabNav.classList.toggle('active');
+  });
+
+  // Hide FAB on index.html
+  if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
+    const fabContainer = document.querySelector(".fab-container");
+    fabContainer?.remove();
+  }
+</script>
+
+
+
 </body>
+
+
 </html>
