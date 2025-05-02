@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Play Verse | Competitive Gaming Platform</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="icon" href="images/gamepad.png">>
+  <link rel="icon" href="images/gamepad.png">
   
 
 
@@ -38,15 +38,29 @@
       align-items: center;
       border-bottom: 1px solid rgba(110, 0, 255, 0.1);
     }
-
     .logo {
+      display: flex;
+      align-items: center;
       font-size: 1.8rem;
       font-weight: 700;
+      gap: 12px;
+      text-decoration: none;
+    }
+    
+    .logo-img {
+      height: 52px; /* Increased size slightly from 40px */
+    }
+    
+    .logo span {
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
+    
+    
 
     .main-nav {
       display: flex;
@@ -247,7 +261,12 @@
   
 
     
-    <div class="logo">PlayVerse</div>
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="PlayVerse Logo" class="logo-img">
+      <span>PlayVerse</span>
+    </a>
+    
+    
     <nav class="main-nav">
       <a href="index.html" class="nav-link active">Home</a>
       <a href="games.html" class="nav-link">Games</a>
@@ -314,6 +333,7 @@
         <p class="game-description">Strategic battles with players worldwide. Join our daily tournaments and feel the fun.</p>
         <a href="images/dino.png" class="play-btn">Play Now</a>
       </div>
+      
     </div>
       
     </div>
