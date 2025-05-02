@@ -23,14 +23,26 @@
       padding: 40px;
     }
 
+    @keyframes fadeSlideIn {
+      from {
+        opacity: 0;
+        transform: translateX(-50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+    
     h2 {
       text-align: center;
       font-size: 3rem;
       margin-bottom: 30px;
       color: #00fff7;
       text-shadow: 0 0 15px #00fff7;
+      animation: fadeSlideIn 1s ease forwards;
     }
-
+    
     .tournament-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -102,7 +114,7 @@
       </div>
 
       <div class="tournament-card">
-        <h3>🏆 Table tenis Pro League</h3>
+        <h3>🏆 Table tennis Pro League</h3>
         <p>Date: May 2, 2025</p>
         <p>Prize: Exclusive In-Game Items</p>
         <a class="join-btn" href="#">Join Now</a>
