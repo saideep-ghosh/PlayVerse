@@ -6,10 +6,7 @@
   <title>Play Verse | Competitive Gaming Platform</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link rel="icon" href="images/gamepad.png">
-  
-
-
-
+  <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
 
   <style>
     :root {
@@ -40,12 +37,25 @@
     }
 
     .logo {
+      display: flex;
+      align-items: center;
       font-size: 1.8rem;
       font-weight: 700;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .logo-img {
+      height: 52px;
+    }
+
+    .logo span {
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
+      font-weight: 800;
+      letter-spacing: 1px;
     }
 
     .main-nav {
@@ -107,10 +117,10 @@
       color: var(--gray);
       max-width: 700px;
       margin: 0 auto 3rem;
-    }/*hello i am saideep*/
+    }
+
     .game-grid {
       display: grid;
-      grid-template: repeat();
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
       padding: 0 5% 5rem;
@@ -214,7 +224,6 @@
       color: var(--light);
     }
 
-    /* Mini Navbar */
     .mini-navbar {
       position: fixed;
       bottom: 0;
@@ -243,11 +252,11 @@
 </head>
 <body>
   <header>
-
-  
-
+    <a href="index.html" class="logo">
+      <img src="images/logo.png" alt="PlayVerse Logo" class="logo-img">
+      <span>PlayVerse</span>
+    </a>
     
-    <div class="logo">PlayVerse</div>
     <nav class="main-nav">
       <a href="index.html" class="nav-link active">Home</a>
       <a href="games.html" class="nav-link">Games</a>
@@ -255,8 +264,8 @@
       <a href="about.html" class="nav-link">About</a>
       <a href="contact.html" class="nav-link">Contact</a>
       <span class="nav-indicator"></span>
-      <link href="https://cdn.lineicons.com/2.0/LineIcons.css" rel="stylesheet">
     </nav>
+
     <div class="auth-buttons">
       <a href="login1.html" class="nav-link">Login</a>
       <a href="signup.html" class="play-btn" style="padding: 0.5rem 1.2rem;">Sign Up</a>
@@ -264,17 +273,15 @@
   </header>
 
   <section class="hero">
-    <h1 class="hero-title">COMPETITIVE GAMING REDEFINED </h1>
+    <h1 class="hero-title">COMPETITIVE GAMING REDEFINED</h1>
     <p class="hero-subtitle">Join thousands of players in our premium gaming ecosystem. Experience tournaments, rankings, and next-level gameplay.</p>
     <a href="#games" class="play-btn" style="font-size: 1.1rem; padding: 0.8rem 2rem;">Explore Games</a>
   </section>
 
   <section id="games">
     <h2 class="section-title">Featured Games</h2>
-  
+
     <div class="game-grid">
-  
-      <!-- 🎯 Chess Masters Card -->
       <div class="game-card">
         <div class="game-thumbnail">
           <img src="images/chess.jpg" alt="Chess Masters" style="width: 100%; height: 100%; object-fit: cover;">
@@ -285,8 +292,7 @@
           <a href="https://www.chess.com/play/online" class="play-btn">Play Now</a>
         </div>
       </div>
-  
-      <!-- 🎯 Bricks Breaker Card -->
+
       <div class="game-card">
         <div class="game-thumbnail">
           <img src="images/brickbreaker.png" alt="Bricks Breaker" style="width: 100%; height: 100%; object-fit: cover;">
@@ -297,11 +303,9 @@
           <a href="https://www.crazygames.com/game/bricks-breaker" class="play-btn">Play Now</a>
         </div>
       </div>
-  
-      <!-- 🎯 Krunker Card -->
+
       <div class="game-card">
         <div class="game-thumbnail">
-          <!-- Optionally replace this icon with an image later -->
           <i class="fas fa-crosshairs" style="font-size: 48px; color: cyan;"></i>
         </div>
         <div class="game-info">
@@ -310,23 +314,19 @@
           <a href="https://www.crazygames.com/game/krunker-io" class="play-btn">Play Now</a>
         </div>
       </div>
-  
-      <!-- 🎯 Dino Jump Card -->
+
       <div class="game-card">
         <div class="game-thumbnail">
-          <!-- Use an image instead of icon if available -->
           <img src="images/dino.png" alt="Dino Jump" style="width: 100%; height: 100%; object-fit: cover;">
         </div>
         <div class="game-info">
           <h3 class="game-title">Dino Jump</h3>
           <p class="game-description">Jump over obstacles and beat your high score in this fun endless runner!</p>
-          <a href="images/dino.png" class="play-btn">Play Now</a> <!-- Consider linking to actual game if available -->
+          <a href="#" class="play-btn">Play Now</a>
         </div>
       </div>
-  
     </div>
   </section>
-  
 
   <section class="updates-section">
     <h2 class="section-title">Gaming Pulse</h2>
@@ -348,20 +348,16 @@
         </div>
         <div class="game-info">
           <h3 class="game-title">Summer Championship 2025</h3>
-          <p class="game-description">$50,000 prize pool. Registrations now open for all players around the globe .</p>
+          <p class="game-description">$50,000 prize pool. Registrations now open for all players around the globe.</p>
           <a href="#" class="play-btn">Learn More</a>
         </div>
       </div>
-      <!-- More update cards -->
     </div>
   </section>
-
-  
 
   <script>
     const navLinks = document.querySelectorAll(".main-nav .nav-link");
     const indicator = document.querySelector(".nav-indicator");
-    const nav = document.querySelector(".main-nav");
 
     function updateIndicator(el) {
       indicator.style.width = el.offsetWidth + "px";
@@ -386,6 +382,5 @@
       if (active) updateIndicator(active);
     });
   </script>
-  
 </body>
 </html>
