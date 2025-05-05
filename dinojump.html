@@ -5,6 +5,26 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dino Jump</title>
   <style>
+    /* Title Styling and Animation */
+    h1 {
+      position: absolute;
+      top: 20px;
+      font-size: 48px;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      color: #FF5722;
+      animation: bounce 1.5s infinite;
+      text-shadow: 2px 2px #000;
+    }
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
     body {
       margin: 0;
       background: #f4f4f4;
@@ -13,7 +33,9 @@
       align-items: center;
       height: 100vh;
       overflow: hidden;
+      flex-direction: column;
     }
+
     canvas {
       background: #fff;
       border: 2px solid #333;
@@ -21,7 +43,9 @@
   </style>
 </head>
 <body>
+  <h1>Dino Jump</h1>
   <canvas id="game" width="800" height="200"></canvas>
+
   <script>
     const canvas = document.getElementById('game');
     const ctx = canvas.getContext('2d');
