@@ -3,9 +3,21 @@
 
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+<head><!--
+  This is a multi-line comment.
+  It won't be displayed in the browser.
+  You can use it to leave notes or explanations in your code.
+  -->
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Dino Jump</title>
+  <title>Dino Jump</title><!--
+    This is a multi-line comment.
+    It won't be displayed in the browser.
+    You can use it to leave notes or explanations in your code.
+    -->
+    
   <style>
     /* Title Styling and Animation */
     h1 {
@@ -47,10 +59,29 @@
       background: #fff;
       border: 2px solid #333;
     }
+
   </style>
 </head>
 <body>
   <h1>Dino Jump</h1>
+  </style><!--
+This is a multi-line comment.
+It won't be displayed in the browser.
+You can use it to leave notes or explanations in your code.
+-->
+
+</head><!--
+  This is a multi-line comment.
+  It won't be displayed in the browser.
+  You can use it to leave notes or explanations in your code.
+  -->
+  
+<body><!--
+  This is a multi-line comment.
+  It won't be displayed in the browser.
+  You can use it to leave notes or explanations in your code.
+  -->
+  
   <canvas id="game" width="800" height="200"></canvas>
 
   <script>
@@ -99,7 +130,7 @@
 
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      // Dino jump logic
+      
       if (dino.jumping) {
         dino.vy -= 1;
         dino.y -= dino.vy;
@@ -111,14 +142,14 @@
         }
       }
 
-      // Move obstacle
+      
       obstacle.x -= obstacle.speed;
       if (obstacle.x + obstacle.width < 0) {
         obstacle.x = 800 + Math.random() * 200;
         score++;
       }
 
-      // Collision detection
+      
       if (
         dino.x < obstacle.x + obstacle.width &&
         dino.x + dino.width > obstacle.x &&
@@ -145,5 +176,15 @@
 
     update();
   </script>
-</body>
-</html>
+</body><!--
+  This is a multi-line comment.
+  It won't be displayed in the browser.
+  You can use it to leave notes or explanations in your code.
+  -->
+  
+</html><!--
+  This is a multi-line comment.
+  It won't be displayed in the browser.
+  You can use it to leave notes or explanations in your code.
+  -->
+  

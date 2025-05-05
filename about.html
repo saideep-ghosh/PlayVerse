@@ -3,14 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>About Us |  Gamers</title>
+  <title>About Us | Gamers</title>
   <link rel="stylesheet" href="css/style.css" />
-  <link href=" https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600&display=swap" rel="stylesheet">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
   <link rel="icon" href="images/gamepad.png">
-
-  
-
   <style>
     body {
       margin: 0;
@@ -77,7 +74,7 @@
     .section p {
       font-size: 1.1rem;
       line-height: 1.8;
-      color: #5b1010;
+      color: violet;
       text-align: center;
     }
 
@@ -131,20 +128,20 @@
       .card {
         width: 80%;
       }
+
       html {
         scroll-behavior: smooth;
       }
+
       .card h3:hover {
         text-shadow: 0 0 10px #0ff;
       }
-            
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Hero Section -->
   <div class="hero">
     <div class="hero-content">
       <h1>We Are Gamers United</h1>
@@ -152,74 +149,48 @@
     </div>
   </div>
 
-  <!-- Mission Section -->
-  <section class="mission-section">
+  <section class="mission-section section">
     <h2>Our Mission</h2>
     <p>
       At Gamers United, we believe gaming is more than just a hobby—it's a lifestyle. Our mission is to create thrilling and immersive experiences that bring players together from across the globe. Whether you're a casual player or a competitive pro, there's a place for you here.
     </p>
   </section>
 
-  <!-- Team Section -->
   <section class="section">
     <h2>Meet the Team</h2>
     <div class="team">
       <div class="card">
-        <!-- <img src="team1.jpg" alt="Saideep ghosh"> -->
-        <h3>Saideep ghosh</h3>
+        <h3>Saideep Ghosh</h3>
         <p>Creative Director</p>
       </div>
       <div class="card">
-        <!-- <img src="team2.jpg" alt="Sanyam Bajaj"> -->
         <h3>Sanyam Bajaj</h3>
         <p>Lead Developer</p>
       </div>
       <div class="card">
-        <!-- <img src="team3.jpg" alt="Sahil Poonia"> -->
         <h3>Sahil Poonia</h3>
         <p>UI/UX Designer</p>
       </div>
       <div class="card">
-        <!-- <img src="team4.jpg" alt="Piyush Thakur"> -->
         <h3>Piyush Thakur</h3>
         <p>Community Manager</p>
+      </div>
     </div>
   </section>
 
- <!-- Mini Navbar -->
-<div class="fab-container">
-  <div class="fab-button" id="fabBtn" title="Menu">
-    <i class="fas fa-bars"></i>
+  <div class="fab-container">
+    <div class="fab-button" id="fabBtn" title="Menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="fab-nav" id="fabNav">
+      <a href="index.html" title="Home"><i class="fas fa-house-user"></i></a>
+      <a href="games.html" title="Games"><i class="fas fa-gamepad"></i></a>
+      <a href="tournaments.html" title="Tournaments"><i class="fas fa-trophy"></i></a>
+      <a href="about.html" title="About Us"><i class="fas fa-users"></i></a>
+      <a href="contact.html" title="Contact"><i class="fas fa-envelope-open-text"></i></a>
+    </div>
   </div>
-  <div class="fab-nav" id="fabNav">
-    <a href="index.html" title="Home"><i class="fas fa-house-user"></i></a>
-    <a href="games.html" title="Games"><i class="fas fa-gamepad"></i></a>
-    <a href="tournaments.html" title="Tournaments"><i class="fas fa-trophy"></i></a>
-    <a href="about.html" title="About Us"><i class="fas fa-users"></i></a>
-    <a href="contact.html" title="Contact"><i class="fas fa-envelope-open-text"></i></a>
-  </div>
-</div>
 
-
-
-
-<script>
-  // FAB toggle logic
-  const fabBtn = document.getElementById('fabBtn');
-  const fabNav = document.getElementById('fabNav');
-
-  fabBtn?.addEventListener('click', () => {
-    fabNav.classList.toggle('active');
-  });
-
-  // Hide FAB on index.html
-  if (window.location.pathname.includes("index.html") || window.location.pathname === "/") {
-    const fabContainer = document.querySelector(".fab-container");
-    fabContainer?.remove();
-  }
-</script>
-
-
-
+  <script src="about.js"></script>
 </body>
 </html>

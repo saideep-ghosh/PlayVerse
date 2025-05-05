@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head><!--
+  This is a multi-line comment.
+  It won't be displayed in the browser.
+  You can use it to leave notes or explanations in your code.
+  -->
+  
   
   <script src="navbar.js" defer></script>
   <meta charset="UTF-8" />
@@ -91,42 +96,28 @@
         font-size: 2.2rem;
       }
     }
-  </style>
-</head>
-<script>
-  const navLinks = document.querySelectorAll(".main-nav .nav-link");
-  const indicator = document.querySelector(".nav-indicator");
-  const nav = document.querySelector(".main-nav");
+  </style><!--
+This is a multi-line comment.
+It won't be displayed in the browser.
+You can use it to leave notes or explanations in your code.
+-->
 
-  function updateIndicator(el) {
-    indicator.style.width = el.offsetWidth + "px";
-    indicator.style.left = el.offsetLeft + "px";
-
-    navLinks.forEach(link => link.classList.remove("active"));
-    el.classList.add("active");
-  }
-
-  navLinks.forEach(link => {
-    link.addEventListener("click", (e) => {
-      updateIndicator(e.target);
-    });
-
-    // On page load, mark correct link active
-    if (link.href === window.location.href) {
-      window.addEventListener("load", () => updateIndicator(link));
-    }
-  });
-
-  // Initial placement
-  window.addEventListener("load", () => {
-    const active = document.querySelector(".nav-link.active");
-    if (active) updateIndicator(active);
-  });
-</script>
+</head><!--
+  This is a multi-line comment.
+  It won't be displayed in the browser.
+  You can use it to leave notes or explanations in your code.
+  -->
+  
+<script src="games.js"></script>
 
 
 
-<body>
+<body><!--
+  This is a multi-line comment.
+  It won't be displayed in the browser.
+  You can use it to leave notes or explanations in your code.
+  -->
+  
 
   <div class="header">
     <h1>Tap & Play Your Favorite Games</h1>
@@ -212,5 +203,15 @@
 
 
 
-</body>
-</html>
+</body><!--
+  This is a multi-line comment.
+  It won't be displayed in the browser.
+  You can use it to leave notes or explanations in your code.
+  -->
+  
+</html><!--
+  This is a multi-line comment.
+  It won't be displayed in the browser.
+  You can use it to leave notes or explanations in your code.
+  -->
+  

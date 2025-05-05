@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brick Breaker</title>
+    <title>Brick Breaker New </title>
     <style>
         body {
             text-align: center;
@@ -17,10 +17,16 @@
             display: block;
             margin: auto;
         }
-    </style>
+    </style><
+
 </head>
+    
 <body>
+    
+
+
     <canvas id="gameCanvas"></canvas>
+        
     <script>
         const canvas = document.getElementById("gameCanvas");
         const ctx = canvas.getContext("2d");
@@ -73,7 +79,7 @@
                 ball.dy *= -1;
             }
 
-            // Ball falls below paddle (Game Over)
+
             if (ball.y + ball.radius > canvas.height) {
                 if (!gameOver) {
                     gameOver = true;
@@ -93,11 +99,12 @@
             drawPaddle();
             detectCollision();
 
-            // Ball movement
+            
             ball.x += ball.dx;
             ball.y += ball.dy;
 
-            // Paddle movement
+             
+            
             if (rightPressed && paddle.x < canvas.width - paddle.width) paddle.x += paddle.dx;
             if (leftPressed && paddle.x > 0) paddle.x -= paddle.dx;
 
