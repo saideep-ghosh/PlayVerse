@@ -1,5 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
 <head><!--
   This is a multi-line comment.
   It won't be displayed in the browser.
@@ -15,6 +19,31 @@
     -->
     
   <style>
+    /* Title Styling and Animation */
+    h1 {
+      position: absolute;
+      top: 20px;
+      font-size: 60px;
+      font-family: 'Press Start 2P', cursive;
+      background: linear-gradient(to right, #FF5722, #FFC107);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: bounce 1.5s infinite;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      letter-spacing: 2px;
+      text-align: center;
+    }
+    
+
+    @keyframes bounce {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-20px);
+      }
+    }
+
     body {
       margin: 0;
       background: #f4f4f4;
@@ -23,11 +52,18 @@
       align-items: center;
       height: 100vh;
       overflow: hidden;
+      flex-direction: column;
     }
+
     canvas {
       background: #fff;
       border: 2px solid #333;
     }
+
+  </style>
+</head>
+<body>
+  <h1>Dino Jump</h1>
   </style><!--
 This is a multi-line comment.
 It won't be displayed in the browser.
@@ -47,6 +83,7 @@ You can use it to leave notes or explanations in your code.
   -->
   
   <canvas id="game" width="800" height="200"></canvas>
+
   <script>
     const canvas = document.getElementById('game');
     const ctx = canvas.getContext('2d');
