@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Dino Jump</title>
@@ -9,12 +11,17 @@
     h1 {
       position: absolute;
       top: 20px;
-      font-size: 48px;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: #FF5722;
+      font-size: 60px;
+      font-family: 'Press Start 2P', cursive;
+      background: linear-gradient(to right, #FF5722, #FFC107);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       animation: bounce 1.5s infinite;
-      text-shadow: 2px 2px #000;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+      letter-spacing: 2px;
+      text-align: center;
     }
+    
 
     @keyframes bounce {
       0%, 100% {
