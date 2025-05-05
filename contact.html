@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Me</title>
-  
+  <title>Contact Me</title> 
+
   <link rel="stylesheet" href="css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
   <link rel="icon" href="images/gamepad.png">
@@ -152,7 +152,8 @@
       background: #2b2b2b;
     }
 
-    @media (max-width: 600px) {
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
       .contact-container {
         margin: 30px 20px;
         padding: 30px 20px;
@@ -160,6 +161,69 @@
 
       h2 {
         font-size: 2rem;
+      }
+
+      p {
+        font-size: 0.9rem;
+      }
+
+      form input, form textarea {
+        font-size: 1rem;
+        padding: 12px;
+      }
+
+      form button {
+        font-size: 1rem;
+        padding: 12px;
+      }
+
+      .fab-container {
+        bottom: 15px;
+        right: 15px;
+      }
+
+      .fab-button {
+        width: 48px;
+        height: 48px;
+      }
+
+      .fab-nav a {
+        padding: 10px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .contact-container {
+        margin: 20px 15px;
+        padding: 25px 15px;
+      }
+
+      h2 {
+        font-size: 1.8rem;
+      }
+
+      p {
+        font-size: 0.85rem;
+      }
+
+      form input, form textarea {
+        font-size: 0.95rem;
+        padding: 10px;
+      }
+
+      form button {
+        font-size: 1rem;
+        padding: 12px;
+      }
+
+      /* FAB button adjustments */
+      .fab-button {
+        width: 45px;
+        height: 45px;
+      }
+
+      .fab-nav a {
+        padding: 8px;
       }
     }
   </style>
