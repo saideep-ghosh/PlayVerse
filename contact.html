@@ -1,62 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  
   <meta charset="UTF-8" />
-    
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact Me</title><!--
-    This is a multi-line comment.
-    It won't be displayed in the browser.
-    You can use it to leave notes or explanations in your code.
-    -->
-    
+  <title>Contact Me</title> 
+
   <link rel="stylesheet" href="css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet">
   <link rel="icon" href="images/gamepad.png">
 
- 
   <style>
     body {
-      background: #0c0a0a;
+      background: linear-gradient(135deg, #1a1a1a, #0a0a0a); /* Dark gradient background */
       font-family: 'Segoe UI', sans-serif;
       color: white;
       margin: 0;
       padding: 0;
+      background-attachment: fixed; /* Ensures the background stays fixed when scrolling */
     }
-
+  
     .contact-container {
       max-width: 600px;
-      margin: 80px auto;
+      margin: 100px auto;
       padding: 40px;
-      background: #1a1a1a;
+      background: rgba(20, 20, 20, 0.9); /* Darker container with transparency */
       border-radius: 20px;
-
- 
-
-      box-shadow: 0 0 25px #05e6ff;
-
+      box-shadow: 0 0 25px #05e6ff; /* Glowing effect */
+      animation: fadeIn 1s ease;
     }
-
+  
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  
     h2 {
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 10px;
-
-      color: #00ffd0;
-      text-shadow: 0 0 15px #00ffd0;
-
       color: #05e6ff;
-   
+      text-shadow: 0 0 15px #05e6ff; /* Glowing text effect */
     }
-
+  
     p {
       text-align: center;
       font-size: 1rem;
       color: #29d0d0;
       margin-bottom: 30px;
     }
-
+  
     form input,
     form textarea {
       width: 100%;
@@ -64,57 +56,182 @@
       margin: 12px 0;
       border: none;
       border-radius: 10px;
-      background: #2b2b2b;
-      color: rgb(160, 154, 154);
+      background: #2b2b2b; /* Darker input areas */
+      color: #e0e0e0;
       font-size: 1rem;
+      transition: all 0.3s ease;
     }
-
+  
+    form input:focus,
+    form textarea:focus {
+      outline: none;
+      box-shadow: 0 0 10px #05e6ff; /* Glowing effect on focus */
+      background: #333;
+    }
+  
     form textarea {
       resize: vertical;
       height: 150px;
     }
-
+  
     form button {
       width: 100%;
       padding: 15px;
       border: none;
       border-radius: 10px;
-     
-
-      background: linear-gradient(90deg, #05e6ff, #05e6ff);
-
+      background: linear-gradient(90deg, #05e6ff, #00bcd4); /* Glowing gradient button */
       color: white;
       font-size: 1.1rem;
       font-weight: bold;
       cursor: pointer;
-
       box-shadow: 0 0 20px #05e6ff;
-
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
     }
-
+  
     form button:hover {
       transform: scale(1.05);
-
-      box-shadow: 0 0 25px #05e6ff;
+      box-shadow: 0 0 25px #05e6ff, 0 0 35px #00bcd4;
     }
-
-    @media (max-width: 600px) {
+  
+    /* FAB styles */
+    .fab-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+  
+    .fab-button {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
+      background: #05e6ff;
+      color: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 0 15px #05e6ff;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+  
+    .fab-button:hover {
+      background: #00bcd4;
+    }
+  
+    .fab-nav {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      position: absolute;
+      bottom: 70px;
+      right: 0;
+      gap: 10px;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+    }
+  
+    .fab-nav.active {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+  
+    .fab-nav a {
+      background: #1a1a1a;
+      color: #05e6ff;
+      padding: 12px;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #05e6ff;
+      transition: background 0.3s ease;
+      text-decoration: none;
+    }
+  
+    .fab-nav a:hover {
+      background: #2b2b2b;
+    }
+  
+    /* Media Queries for responsiveness */
+    @media (max-width: 768px) {
       .contact-container {
         margin: 30px 20px;
         padding: 30px 20px;
       }
-
+  
       h2 {
         font-size: 2rem;
       }
+  
+      p {
+        font-size: 0.9rem;
+      }
+  
+      form input, form textarea {
+        font-size: 1rem;
+        padding: 12px;
+      }
+  
+      form button {
+        font-size: 1rem;
+        padding: 12px;
+      }
+  
+      .fab-container {
+        bottom: 15px;
+        right: 15px;
+      }
+  
+      .fab-button {
+        width: 48px;
+        height: 48px;
+      }
+  
+      .fab-nav a {
+        padding: 10px;
+      }
+    }
+  
+    @media (max-width: 600px) {
+      .contact-container {
+        margin: 20px 15px;
+        padding: 25px 15px;
+      }
+  
+      h2 {
+        font-size: 1.8rem;
+      }
+  
+      p {
+        font-size: 0.85rem;
+      }
+  
+      form input, form textarea {
+        font-size: 0.95rem;
+        padding: 10px;
+      }
+  
+      form button {
+        font-size: 1rem;
+        padding: 12px;
+      }
+  
+      /* FAB button adjustments */
+      .fab-button {
+        width: 45px;
+        height: 45px;
+      }
+  
+      .fab-nav a {
+        padding: 8px;
+      }
     }
   </style>
-</head>
   
+</head>
 
 <body>
-  
 
   <div class="contact-container">
     <h2>Contact Me</h2>
@@ -126,25 +243,35 @@
       <button type="submit">Send Message</button>
     </form>
   </div>
-  
 
-<div class="fab-container">
-  <div class="fab-button" id="fabBtn" title="Menu">
-    <i class="fas fa-bars"></i>
+  <div class="fab-container">
+    <div class="fab-button" id="fabBtn" title="Menu">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="fab-nav" id="fabNav">
+      <a href="index.html" title="Home"><i class="fas fa-house-user"></i></a>
+      <a href="games.html" title="Games"><i class="fas fa-gamepad"></i></a>
+      <a href="tournaments.html" title="Tournaments"><i class="fas fa-trophy"></i></a>
+      <a href="about.html" title="About Us"><i class="fas fa-users"></i></a>
+      <a href="contact.html" title="Contact"><i class="fas fa-envelope-open-text"></i></a>
+    </div>
   </div>
-  <div class="fab-nav" id="fabNav">
-    <a href="index.html" title="Home"><i class="fas fa-house-user"></i></a>
-    <a href="games.html" title="Games"><i class="fas fa-gamepad"></i></a>
-    <a href="tournaments.html" title="Tournaments"><i class="fas fa-trophy"></i></a>
-    <a href="about.html" title="About Us"><i class="fas fa-users"></i></a>
-    <a href="contact.html" title="Contact"><i class="fas fa-envelope-open-text"></i></a>
-  </div>
-</div>
 
+  <script>
+    // FAB toggle logic
+    const fabBtn = document.getElementById('fabBtn');
+    const fabNav = document.getElementById('fabNav');
 
+    fabBtn?.addEventListener('click', () => {
+      fabNav.classList.toggle('active');
+    });
 
+    // Hide FAB on index.html
+    const path = window.location.pathname.split('?')[0];
+    if (path.endsWith("index.html") || path === "/") {
+      document.querySelector(".fab-container")?.remove();
+    }
+  </script>
 
-<script src="contact.js"></script>
 </body>
-  
 </html>
